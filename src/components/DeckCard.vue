@@ -12,17 +12,23 @@ export default{
 </script>
 
 <template>
-    <div class="col-3">
-        <figure>
-            <img :src="propsImg" alt="">
-        </figure>
-        <h3>{{ propsTitle }}</h3>
-        <span>{{ propsType }}</span>
+    <div class="col-3 mb-3">
+        <div class="bg-s">
+            <figure class="">
+                <img :src="propsImg" alt="">
+            </figure>
+            <h3>{{ propsTitle }}</h3>
+            <span>{{ propsType }}</span>
+        </div>
     </div>
 </template>
 
 <style scoped>
 img{
     max-height: 246px;
+}
+.bg-s{
+    min-height:360px;
+    background-color: #CCCCCC;
 }
 </style>

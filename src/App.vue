@@ -32,9 +32,10 @@ export default{
 </script>
 
 <template>
-   <DeckList/>
+    <div class="bg-success">
+        <DeckList/>
+    </div>
 </template>
 
 <style>
-
 </style>
