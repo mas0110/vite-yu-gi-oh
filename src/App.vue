@@ -16,6 +16,11 @@ export default{
     methods: {
         getCard() {
             store.loading = true
+
+            if(store.SelectValue){
+                store.apiURL += `&archetype=${store.SelectValue}`
+            }
+
             axios
             .get(store.apiURL)
             .then(res => {
@@ -24,16 +29,26 @@ export default{
                 store.loading = false
             })
         },
+        getArchetype(){
+            axios
+            .get(store.apiSelect)
+            .then(res => {
+               console.log(res.data)
+               store.ArchtypeList = res.data
+               store.loading = false
+            })
+        }
     },
     mounted(){
         this.getCard()
+        this.getArchetype()
     }
 }
 </script>
 
 <template>
     <div class="bg-success">
-        <DeckList/>
+        <DeckList @performSearch="getCard()"/>
     </div>
 </template>
 

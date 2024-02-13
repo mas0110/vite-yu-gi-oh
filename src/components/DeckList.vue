@@ -23,12 +23,14 @@ export default{
         </div>
     </div>
     <div class="row">
-        <select class="form-select" aria-label="Default select example">
-          <option selected>Alien</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+        <select class=" ms-2 form-select w-25" aria-label="Default select example" v-model="store.SelectValue" @change="$emit('performSearch')">
+            <option
+            v-for="(element, index) in store.ArchtypeList">{{ element.archetype_name }}</option>
         </select>
+
+        <div class="text-start text-light bg-dark pt-2 mb-2 ">
+        <p>Found {{ store.CardList.length }} cards</p>
+        </div>
        
         <DeckCard
         v-for="(element, index) in store.CardList"
@@ -46,8 +48,7 @@ export default{
     background-color: #003366;
     padding-top: 20px;
     border-radius: 20px;
-  
-}
+};
 select{
     position: absolute;
     left: 60px;
